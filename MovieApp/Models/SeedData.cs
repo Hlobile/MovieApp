@@ -1,4 +1,7 @@
-﻿using System;
+﻿#define Rating
+#if Rating
+#region snippet_1
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,22 +24,26 @@ namespace MovieApp.Models
                 {
                     return; //db has been seeded
                 }
+                #region snippet1
 
-            context.Movie.AddRange(
+                context.Movie.AddRange(
                new Movie
                {
                    Title = "Lord of the Rings",
                    ReleaseDate = DateTime.Parse("2000-01-12"),
                    Genre = "Adventure",
-                   Price = 10.01M
+                   Price = 10.01M,
+                   Rating = "R"
                },
+                #endregion
 
                new Movie
                {
                    Title = "Ghostbusters ",
                    ReleaseDate = DateTime.Parse("1984-3-13"),
                    Genre = "Comedy",
-                   Price = 8.99M
+                   Price = 8.99M,
+                   Rating = "PG"
                },
 
                new Movie
@@ -44,7 +51,8 @@ namespace MovieApp.Models
                    Title = "Rio Bravo",
                    ReleaseDate = DateTime.Parse("1959-4-15"),
                    Genre = "Western",
-                   Price = 3.99M
+                   Price = 3.99M,
+                   Rating = "R"
                }
                 );
 
@@ -57,3 +65,5 @@ namespace MovieApp.Models
 
     }
 }
+#endregion
+#endif
